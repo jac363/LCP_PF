@@ -1,0 +1,14 @@
+# Create a new virtual environment by running the following command in the command prompt:
+python -m venv streamlit_env
+
+# Activate the virtual environment:
+streamlit_env\Scripts\activate
+
+# Install Streamlit within the virtual environment:
+pip install streamlit
+
+# Navigate to the directory containing your web_app.py file:
+cd C:\Users\User\Desktop\test_excel
+
+# Run the Streamlit app using the Python interpreter within the virtual environment:
+python -m streamlit run web_app_v3.py
