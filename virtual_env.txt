@@ -8,7 +8,16 @@ streamlit_env\Scripts\activate
 pip install streamlit
 
 # Navigate to the directory containing your web_app.py file:
-cd C:\Users\User\Desktop\test_excel
+cd C:\Users\User\Desktop\pf_table_generator
 
 # Run the Streamlit app using the Python interpreter within the virtual environment:
-python -m streamlit run web_app_v3.py
+python -m streamlit run web_app_v4.py
+
+
+# Push to Git
+git add .
+git commit -m "Complete PF Investors"
+git remote add origin https://github.com/kp7662/LCP_PF
+git push origin master
+
+

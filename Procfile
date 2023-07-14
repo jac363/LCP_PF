@@ -1,1 +1,1 @@
-web: streamlit run web_app_v3.py
+web: streamlit run web_app_v4.py
