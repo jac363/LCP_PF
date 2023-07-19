@@ -223,32 +223,6 @@ def complete_pf_investors(pf_table_file, table4_file):
     pf_table.to_excel(output_file, index=False)
     return output_file
 
-# Function to read cells in the "Peer Fund" column and copy rows to "New Investments" sheet
-def copy_new_investments(output_file):
-    """
-    Read the "Peer Fund" column in the output file and copy corresponding rows to "New Investments" sheet.
-
-    Args:
-        output_file (str): Path to the output Excel file.
-
-    Returns:
-        pandas.DataFrame: "New Investments" DataFrame.
-    """
-    # Read the output file
-    output_data = pd.read_excel(output_file, sheet_name='Sheet1')
-
-    # Create a new DataFrame for "New Investments" sheet
-    new_investments_data = pd.DataFrame(columns=output_data.columns)
-
-    # Iterate over the "Peer Fund" column
-    for _, row in output_data.iterrows():
-        peer_fund = row['Peer Fund']
-        if isinstance(peer_fund, str) and len(peer_fund.strip()) > 0:
-            # Concatenate the row to "New Investments" DataFrame
-            new_investments_data = pd.concat([new_investments_data, pd.DataFrame(row).transpose()], ignore_index=True)
-
-    return new_investments_data
-
 # First page: Peer Funds Table Generator
 def peer_funds_table_generator():
     """
@@ -275,24 +249,11 @@ def peer_funds_table_generator():
         completed_table_file = complete_pf_notes(peer_funds_table_file, file3)
         output_file = complete_pf_investors(completed_table_file, file4)
 
-        # Read the "Peer Fund" column and copy rows to "New Investments" sheet
-        output_data = pd.read_excel(output_file)  # Read the output file
-        new_investments_data = copy_new_investments(output_file)
-
-        # Create a new Excel file and write both sheets
-        complete_pf_table = "complete_pf_table.xlsx"
-        with pd.ExcelWriter(complete_pf_table, engine='xlsxwriter') as writer:
-            # Write the original output data to the default sheet
-            output_data.to_excel(writer, index=False, sheet_name='Sheet1')
-
-            # Write the "New Investments" data to a separate sheet
-            new_investments_data.to_excel(writer, index=False, sheet_name='New Investments')
-
-        # Provide a download link for the modified output file
-        with open(complete_pf_table, "rb") as f:
+        # Provide a download link for the completed table file
+        with open(output_file, "rb") as f:
             file_bytes = f.read()
-        st.subheader("请下载完整的 Peer Funds Table")
-        st.download_button("点击这里", file_bytes, file_name="complete_pf_table.xlsx", mime="application/octet-stream")
+        st.subheader("下载完整的 Peer Funds Table")
+        st.download_button("点击这里", file_bytes, file_name="completed_peer_fund_table.xlsx", mime="application/octet-stream")
 
 # New function to extract missing companies from Table 3
 def extract_missing_companies(table1, table2, table3):

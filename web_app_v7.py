@@ -1,6 +1,4 @@
-# This code is a Streamlit web application that provides two functionalities:
-# 1. Peer Funds Table Generator: It allows users to upload four Excel files, merge, format, and complete a peer funds table.
-# 2. Missing Companies Sorter: It allows users to upload three Excel files and extract missing companies from the data.
+# Attempt to Link to Feishu
 
 import streamlit as st
 import pandas as pd
