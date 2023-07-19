@@ -283,7 +283,7 @@ def peer_funds_table_generator():
         complete_pf_table = "complete_pf_table.xlsx"
         with pd.ExcelWriter(complete_pf_table, engine='xlsxwriter') as writer:
             # Write the original output data to the default sheet
-            output_data.to_excel(writer, index=False, sheet_name='Sheet1')
+            output_data.to_excel(writer, index=False, sheet_name='Full List')
 
             # Write the "New Investments" data to a separate sheet
             new_investments_data.to_excel(writer, index=False, sheet_name='New Investments')
