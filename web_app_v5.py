@@ -372,7 +372,7 @@ def main():
     Main function to run the Streamlit app.
     """
     # Set the title of the app
-    st.title("Web App")
+    st.title("*Web App*")
 
     # Create a navigation system between the pages
     page = st.radio("Select a page:", ("Peer Funds Table Generator", "Missing Companies Sorter"))
