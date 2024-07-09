@@ -114,9 +114,9 @@ def create_pf_table(formatted_table):
         pandas.DataFrame: Peer Funds Table.
     """
     # Create an empty Peer Funds Table DataFrame
-    peer_funds_table = pd.DataFrame(columns=['Category', 'Updated', 'Company', 'Business', 'Peer Fund', 'Round', 'Amount',
-                                             '城市', '是否值得跟进', '跟进人 & Deallog', '跟进记录', '是否值得考虑一下轮', 'Funding History',
-                                             'Notes', 'Due Date', '工商名称', '投资方'])
+    peer_funds_table = pd.DataFrame(columns=['Category', 'Updated', 'Company', 'Business', 'Notes', 'Round', 'Amount', '是否成长期',
+                                             '城市', 'Peer Fund', 'Funding History', '是否值得跟进', '跟进人 & Deallog', '跟进记录', '是否值得考虑一下轮', 
+                                             'Due Date', '工商名称', '投资方'])
 
     # Iterate over each row in the formatted table
     for _, row in formatted_table.iterrows():
